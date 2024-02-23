@@ -1,0 +1,50 @@
+*{
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+body{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+
+/* Área de jogo */
+#PlayArea{
+    height: 800px;
+    padding: 50px;
+    background-color: #D7D0D5;
+    width: 550px;
+    border-radius: 10px 10px 100px 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: column;
+    position: relative;
+    
+}
+#detail{
+    width: 80%;
+    height: 400px;
+    background-color: #767388;
+    
+}
+#visorArea{
+    border-radius: 3px;
+    box-shadow: inset 5px 5px 15px 0 #464926;
+   height: 400px;
+   width: 400px;
+   display: flex;
+   background-color: #9B9E4D; 
+   flex-direction: row;
+}
+.visor{
+    display: flex;
+}
+#buttonsArea ul li{
+    display: inline-block;
+}
+li button{
+    padding: 10px;
+}

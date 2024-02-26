@@ -8,33 +8,56 @@ body{
     align-items: center;
     justify-content: center;
     height: 100vh;
+    background-color: rgb(2, 2, 27);
 }
 
 /* Área de jogo */
 #PlayArea{
-    height: 800px;
-    padding: 50px;
+    aspect-ratio: 1/0.61;
+    max-width: 700px;
+    /* max-height: 800px;  */
+    padding: 50px 0px;
     background-color: #D7D0D5;
-    width: 550px;
-    border-radius: 10px 10px 100px 10px;
+    height: 90%;
+    border-radius: 10px 10px 120px 10px;
     display: flex;
     align-items: center;
     justify-content: space-between;
     flex-direction: column;
     position: relative;
-    
+    box-shadow: inset -3px -3px 8px 2px rgba(0, 0, 0, 0.500) ,
+    12px 12px 10px 2px rgba(0, 0, 0, 0.500)
+    ;
 }
 #detail{
-    width: 80%;
+    width: 90% ;
     height: 400px;
+    aspect-ratio: 2/1;
+    z-index: 2;
     background-color: #767388;
-    
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: inset 1px 1px 4px 0px rgba(0, 0, 0, 0.500);
+    position: relative;
+}
+#onlight{
+    height: 10px;
+    width: 10px;
+    position: absolute;
+    right: 40px;
+    background-color: greenyellow;
+    box-shadow: 0 0 5px 6px greenyellow , inset 1px 1px 4px 0 rgba(255, 255, 255, 0.300);
+    top: 50px;
+    border-radius: 100%;
 }
 #visorArea{
+    aspect-ratio: 1.11/1;
     border-radius: 3px;
     box-shadow: inset 5px 5px 15px 0 #464926;
-   height: 400px;
-   width: 400px;
+   height: 90%;
+   
    display: flex;
    background-color: #9B9E4D; 
    flex-direction: row;
@@ -42,9 +65,34 @@ body{
 .visor{
     display: flex;
 }
-#buttonsArea ul li{
-    display: inline-block;
+#buttonsArea{
+    display: flex;
+    gap: 10px;
 }
 li button{
     padding: 10px;
+}
+
+/* buttons */
+
+#buttonsArea button{
+    height: 70px;
+    width: 70px;
+    border-radius:100%;
+    background-color: #B2346B;
+    border: 1px solid rgba(0, 0, 0, 0.325);
+    border:none;
+    box-shadow: 2px 2px 5px 0.5px rgba(0, 0, 0, 0.500) , inset -1px -1px 4px .25px rgba(0, 0, 0, 0.500) , inset 1px 1px 4px .25px rgba(255, 255, 255, 0.300);
+    cursor: pointer;
+    transition:  all 3s ease;
+}
+#buttonsArea button:hover {
+    box-shadow: inset 2px 2px 4px 2px rgba(0, 0, 0, 0.500) ;
+}
+
+#buttonsArea .button{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
 }

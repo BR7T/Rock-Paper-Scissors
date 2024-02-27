@@ -7,22 +7,24 @@
     font-family: "Press Start 2P", system-ui;
     font-weight: 400;
     font-size: 1.2rem;
+    user-select: none;
 }
 body{
     display: flex;
     align-items: center;
     justify-content: center;
     height: 100vh;
-    background-color: rgb(2, 2, 27);
+    background-color: #a092f2;
 }
 
 /* Área de jogo */
 #PlayArea{
-    aspect-ratio: 0.71/1;
-    max-width: 700px;
-    /* max-height: 800px;  */
+    aspect-ratio: 0.75/1;
+    border: 5px  black;
+    border-style:ridge;
+    gap: 15px;
     padding: 50px 0px;
-    background-color: #D7D0D5;
+    background-color: #D4CED0;
     height: 90%;
     border-radius: 10px 10px 120px 10px;
     display: flex;
@@ -30,14 +32,13 @@ body{
     justify-content: space-between;
     flex-direction: column;
     position: relative;
-    box-shadow: inset -3px -3px 8px 2px rgba(0, 0, 0, 0.500) ,
-    12px 12px 10px 2px rgba(0, 0, 0, 0.500)
+    box-shadow: inset 0 0 8px 5px rgba(74, 74, 74, 0.721)
     ;
 }
 #detail{
     width: 90% ;
     height: 400px;
-    aspect-ratio: 2/1;
+    padding:15px 0;
     z-index: 2;
     background-color: #767388;
     border-radius: 20px;
@@ -46,23 +47,70 @@ body{
     justify-content: center;
     box-shadow: inset 1px 1px 4px 0px rgba(0, 0, 0, 0.500);
     position: relative;
-    flex: 1;
+    flex: 2.5;
+}
+/* console Name */
+#nameCons{
+    position: absolute;
+    bottom: -25px;
+    left: 0;
+
+}
+#nameCons p{
+    font-family: "Anta" , sans-serif;
+    color: #2E254B;
+    font-size: 0.85rem;
+}
+#nameCons p span{
+    font-size: 1rem;
+    color: #B2346B;
+    font-family: "Anta" , sans-serif;
+    
+}
+
+
+#onlightArea{
+    position: absolute;
+    left: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction:column;
+    top: 50px;
+    gap: 5px;
+
+}
+#onlightArea p{
+    font-family: "Anta", sans-serif;
+    font-size: 1rem;
+    color:beige;
 }
 #onlight{
     height: 10px;
     width: 10px;
-    position: absolute;
-    right: 40px;
+    animation: pisca 1s linear infinite;
     background-color: greenyellow;
-    box-shadow: 0 0 5px 6px greenyellow , inset 1px 1px 4px 0 rgba(255, 255, 255, 0.300);
-    top: 50px;
+    
     border-radius: 100%;
 }
+@keyframes pisca {
+    0%{
+        box-shadow: 0 0 0 0 greenyellow;
+        
+    }
+    50%{
+        box-shadow: 0 0 15px 8px greenyellow 
+    }
+    0%{
+        box-shadow: 0 0 0 0 greenyellow;
+    }
+}
+
 #visorArea{
-    aspect-ratio: 1.11/1;
+    width: 70%;
     border-radius: 3px;
     box-shadow: inset 5px 5px 15px 0 #464926;
-   height: 90%;
+   height: 100%;
    
    display: flex;
    background-color: #9B9E4D; 
@@ -84,17 +132,30 @@ li button{
     display: flex;
     width: 90%;
     height: 300px;
-    flex: 1;
+    align-items: center;
+    flex: 1.5;
 }
 #scoreArea{
-    flex: 1;
+    flex: .8;
 }
 #buttonsArea{
     flex: 1;
     
 }
+#startselect{
+    flex: 0.7;
+}
 /* buttons */
-
+#buttonsArea{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 110px;
+    transform: rotate(-25deg);
+    border-radius: 55px;
+    padding: 0 10px;
+    background-image: linear-gradient(190deg,  rgba(0, 0, 0, 0.200), #ffffff67);
+}
 #buttonsArea button{
     height: 70px;
     width: 70px;
@@ -102,12 +163,14 @@ li button{
     background-color: #B2346B;
     border: 1px solid rgba(0, 0, 0, 0.325);
     border:none;
-    box-shadow: 2px 2px 5px 0.5px rgba(0, 0, 0, 0.500) , inset -1px -1px 4px .25px rgba(0, 0, 0, 0.500) , inset 1px 1px 4px .25px rgba(255, 255, 255, 0.300);
+    box-shadow: 0px 4px 5px 0 rgba(0, 0, 0, 0.500) , inset 0px -1px 4px 0 rgba(0, 0, 0, 0.500) , inset 0px 4px 2px .5px rgba(255, 255, 255, 0.600);
     cursor: pointer;
     
 }
 #buttonsArea button:hover {
-    box-shadow: inset 2px 2px 4px 2px rgba(0, 0, 0, 0.500) ;
+    box-shadow:  inset 0px -1px 4px 0 rgba(0, 0, 0, 0.500) , inset 0px 4px 2px .5px rgba(255, 255, 255, 0.600);
+    
+    background-color: #B2346B;
 }
 
 #buttonsArea .button{
@@ -119,6 +182,7 @@ li button{
 }
 .button p{
     font-family: "Anta", sans-serif;
+    color: #2E254B;
 }
 /* score area */
 #scoreArea{
@@ -132,8 +196,8 @@ li button{
     background-color: #9B9E4D;
     box-shadow: inset 5px 5px 15px 0 #464926;
     border-radius: 2px;
-    height: 30%;
-    width: 40%;
+    height: 50%;
+    width: 35%;
     color: black;
     display: flex;
     align-items: center;
@@ -142,6 +206,7 @@ li button{
 }
 #scoreArea p{
     font-size: 2rem;
+    color: #2E254B;
     font-family: "Anta", sans-serif;
     font-size: 1.5rem;
 }
@@ -149,4 +214,88 @@ hr{
     width: 60%;
     margin: 5px;
     border: 1px solid black;
+}
+
+/* start e select buttons */
+.buttonsSS{
+    height: 15px;
+    display: flex;
+    width: 60px;
+    cursor: pointer;
+    background-color: #77747F;
+    box-shadow: -2px 2px 4px 0px rgba(0, 0, 0, 0.500),
+    inset 2px 2px 4px 0 rgba(255, 255, 255, 0.300),
+    inset -2px -2px 4px 0 rgba(0, 0, 0, 0.500);
+    border-radius:7.5px;
+    
+    border: none;
+
+}
+.detailButtonSS:hover .buttonsSS{
+    box-shadow:inset 2px 2px 4px 0 rgba(255, 255, 255, 0.300),
+    inset -2px -2px 4px 0 rgba(0, 0, 0, 0.500);
+}
+.detailButtonSS{
+    padding: 12px;
+    background-image: linear-gradient(190deg,  rgba(0, 0, 0, 0.200), #ffffff67);
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+.buttonsSSArea  p{
+    font-family: "Anta" , sans-serif;
+    
+    
+    color: #2E254B;
+    
+}
+.buttonsSSArea{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    transform: rotate(-25deg);
+    
+
+}
+
+
+/* Audio Design */
+
+#SSV{
+    width: 90%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    flex: 0.8;
+}
+#startselect{
+    flex: 8;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+}
+#AudioArea{
+    flex: 4;
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: column;
+    transform: rotate(70deg);
+    
+}
+.barsAudio{
+    height: 12px;
+    width: 100px;
+    background-color: #a3a3a3;
+    box-shadow: inset 4px 0px 1px 0 rgba(138, 138, 138, 0.858),
+    inset -4px 0px 4px 0 rgba(0, 0, 0, 0.500);
+    border-radius:30px
+
 }

@@ -20,8 +20,8 @@ body{
 /* Área de jogo */
 #PlayArea{
     aspect-ratio: 0.75/1;
-    border: 5px  black;
-    border-style:ridge;
+    border: 3px  black;
+    border-style:solid;
     gap: 15px;
     padding: 50px 0px;
     background-color: #D4CED0;
@@ -71,7 +71,7 @@ body{
 
 #onlightArea{
     position: absolute;
-    left: 5px;
+    left:8px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -88,30 +88,21 @@ body{
 #onlight{
     height: 10px;
     width: 10px;
-    animation: pisca 1s linear infinite;
+    box-shadow: 0 0 15px 8px greenyellow;
+
     background-color: greenyellow;
     
     border-radius: 100%;
 }
-@keyframes pisca {
-    0%{
-        box-shadow: 0 0 0 0 greenyellow;
-        
-    }
-    50%{
-        box-shadow: 0 0 15px 8px greenyellow 
-    }
-    0%{
-        box-shadow: 0 0 0 0 greenyellow;
-    }
-}
 
 #visorArea{
     width: 70%;
+    padding: 16px;
     border-radius: 3px;
     box-shadow: inset 5px 5px 15px 0 #464926;
    height: 100%;
-   
+   align-items: center;
+   justify-content: center;
    display: flex;
    background-color: #9B9E4D; 
    flex-direction: row;
@@ -204,6 +195,10 @@ li button{
     flex-direction: column;
     justify-content: center;
 }
+#scoreArea #score p{
+    font-family: "Press Start 2P", system-ui;
+    font-size: 1.3rem; 
+}
 #scoreArea p{
     font-size: 2rem;
     color: #2E254B;
@@ -215,7 +210,6 @@ hr{
     margin: 5px;
     border: 1px solid black;
 }
-
 /* start e select buttons */
 .buttonsSS{
     height: 15px;
@@ -298,4 +292,53 @@ hr{
     inset -4px 0px 4px 0 rgba(0, 0, 0, 0.500);
     border-radius:30px
 
+}
+
+
+/* Game Area */
+#VS hr{
+    width: 100%;
+}
+#VS{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    flex: .5;
+}
+
+
+.Game img{
+    
+    filter:hue-rotate(50deg);
+    
+}
+.Game{
+    display:flex;
+    justify-content: space-between;
+    flex-direction: column;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+}
+.areas{
+    display: flex;
+}
+
+#playerArea{
+    flex: 1;
+}
+
+
+
+#playerArea div{
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+#playerIcon{
+    height:20%
 }

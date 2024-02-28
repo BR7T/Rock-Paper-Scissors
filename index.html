@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -16,20 +16,28 @@
         </div>
 
         <div id="nameCons">
-          <p>Rock,Paper,Scissor® by<span>Buratini</span></p>
+          <p>Rock,Paper,Scissor® by <span>Buratini</span></p>
         </div>
 
         <div id="visorArea">
-          <div id="RobotArea" class="visor">
-            <h1>Robô</h1>
-            <div class="RPS">
-              <p>🤖</p>
+          <div class="Game">
+            <div>
+              <div id="computerArea" class="areas">
+                <!-- <img src="/assets/image/Bot.png" alt="">
+                <img src="/assets/image/pedra.png" alt="" class="PPTIcon"> -->
+              </div>
             </div>
-          </div>
-          <div id="PlayerArea" class="visor">
-            <h1>Player</h1>
-            <div class="RPS">
-              <p>✊</p>
+            <div id="VS"> 
+              <hr>
+              VS
+              <hr>
+            </div>
+            <div id="playerArea" class="areas">
+              <div>
+                <img src="/assets/image/pedra.png" alt="">
+                <img src="/assets/image/pixil-frame-0 (1).png" id='playerIcon'alt="">
+              </div>
+              
             </div>
           </div>
         </div>
@@ -43,9 +51,9 @@
             <p>score</p>
               <div id="score">
 
-                  10
+                  <p id="actualScore">10</p>
                   <hr>
-                  20
+                  <p id='highScore'></p>
                 </div>
                 <p>HighScore</p>
             </div>
@@ -69,7 +77,7 @@
 
       <div id="SSV">
         <div id="startselect">
-          <div class="buttonsSSArea">
+          <div class="buttonsSSArea" onclick="GameStart()">
               <div class="detailButtonSS">
                   <button class="buttonsSS"></button>
               </div>
@@ -96,6 +104,7 @@
         </div>
       </div>
       
+      <script src="script.js"></script>
     </div>
   </body>
 </html>

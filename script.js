@@ -6,10 +6,15 @@ const ScreenDiv = document.getElementById("visorArea");
 const rockPick = document.getElementById('rock')
 const paperPick = document.getElementById('paper')
 const scissorsPick = document.getElementById('scissors')
-
-
+const QM = document.querySelector('#QuestionPick')
+const selectBtn = document.getElementById('select')
 const UserPickVisor = document.getElementById('playerPick')
 const BotPickVisor = document.getElementById('botPick')
+const Jogo1 = document.getElementById('Game');
+
+const removebg = BotPickVisor.style.backgroundImage = 'none';
+
+let CanClick = true;
 
 let ActualScore = 0;
 let HighScore = 0;
@@ -22,158 +27,218 @@ randomN = Math.floor(Math.random() * 3);
 let finalizaFunc = 0;
 
 let Apresentation = document.createElement("div");
+
 function GameStart() {
 
   switch(finalizaFunc){
     case 0:
-      AppearText("Jokempo", Apresentation);
+      AppearText("Rock, Paper, Scissors", Apresentation);
+      finalizaFunc = 1
+      CanClick = false;
+
+      
+
     break;
     case 1:
-      AppearText("Level - " + finalizaFunc, Apresentation);
+      CanClick = false;
+      finalizaFunc = 2
+      AppearText(' Level - ' + ActualScore, Apresentation);
     break;
     case 2:
-      Start()
-      ;
+      CanClick = true;
+
+      Start();
     break;
-  
+    case 'win':
+      
+      AppearText('You Win!' , Apresentation)
+      finalizaFunc = 1
+    break;
+    case 'lose':
+      
+      AppearText('You Lose!' , Apresentation)
+      finalizaFunc = 1;
+      break;
   }
 }
 
 function AppearText(t, div) {
-  let D = div;
-  let T = t;
-  ScreenDiv.appendChild(D);
+  ScreenDiv.appendChild(div);
   let i = 0;
   writing();
   function writing() {
-    if (i <= T.length) {
-      D.innerHTML += T.charAt(i);
-      setTimeout(writing, 200);
+    if (i <= t.length) {
+      div.innerHTML += t.charAt(i);
+      setTimeout(writing, 100);
       i++;
     } else {
-      D.innerHTML = "";
-      finalizaFunc++;
-      GameStart();
+      GameStart()
+      div.innerHTML =''
     }
   }
 }
+
+
 let PickPlay = 'pedra'
+
+
 function Start(){
-    rockPick.addEventListener('click' , ()=>{
-      
-      UserPickVisor.style.backgroundImage = 'none'
-      UserPickVisor.style.backgroundImage = 'url(assets/image/pedra.png)'
-      PickPlay = 'pedra'
-      console.log(BotPick[randomN])
+    Jogo1.style.display = 'flex'
+    BotPickVisor.style.backgroundImage = 'url(assets/image/QM.png)'
+    
 
-      
-    })
-    paperPick.addEventListener('click', ()=>{
-      
-      UserPickVisor.style.backgroundImage = 'none'
-      UserPickVisor.style.backgroundImage = 'url(assets/image/papel.png)'
-      PickPlay = 'papel'
-      console.log(BotPick[randomN])
-
-    })
-    scissorsPick.addEventListener('click',()=>{
-      
-      UserPickVisor.style.backgroundImage = 'none'
-      UserPickVisor.style.backgroundImage = 'url(assets/image/tesoura.png)'
-      PickPlay = 'tesoura'
-      console.log(BotPick[randomN])
-
-    })
-
-    document.getElementById('select').addEventListener('click',()=>{
-      randomN = Math.floor(Math.random() * 3);
-      if(PickPlay == 'pedra'){RockVar(randomN)}
-      else if(PickPlay == 'papel'){PaperVar(randomN)}
-      else if(PickPlay == 'tesoura'){ScissorsVar(randomN)}
-      
-    })
-    ActualScoreText.innerHTML = ActualScore;
-
-    let Jogo1 = document.getElementById('Game');Jogo1.style.display = 'flex';
 }
+rockPick.addEventListener('click' , ()=>{
+      
+  UserPickVisor.style.backgroundImage = 'none'
+  UserPickVisor.style.backgroundImage = 'url(assets/image/pedra.png)'
+  PickPlay = 'pedra'
+  
+
+  
+})
+paperPick.addEventListener('click', ()=>{
+  UserPickVisor.style.backgroundImage = 'none'
+  UserPickVisor.style.backgroundImage = 'url(assets/image/papel.png)'
+  PickPlay = 'papel'
+  
+
+})
+scissorsPick.addEventListener('click',()=>{
+  UserPickVisor.style.backgroundImage = 'none'
+  UserPickVisor.style.backgroundImage = 'url(assets/image/tesoura.png)'
+  PickPlay = 'tesoura'
+  
+
+})
+
+selectBtn.addEventListener('click',()=>{
+  
+  if(!CanClick){
+    return
+  }
+  CanClick=false
+
+  randomN = Math.floor(Math.random() * 3);
+
+  
+  if(PickPlay == 'pedra')
+  {RockVar(randomN)}
+  else if(PickPlay == 'papel')
+  {PaperVar(randomN)}
+  else if(PickPlay == 'tesoura'){ScissorsVar(randomN)}
+  
+  setTimeout(()=>{
+    CanClick = true
+  }, 500)
+  
+  
+})
+
+
 
 function RockVar(randomN){
-  if(PickPlay == 'pedra' && BotPick[randomN] == 'rock'){
-    console.log('empate')
-    BotPickVisor.style.backgroundImage = 'none'
+  if(BotPick[randomN] == 'rock'){
+    removebg
     BotPickVisor.style.backgroundImage = 'url(assets/image/pedra.png)'
+    ActualScore = ActualScore
+    ActualScoreText.innerHTML = ActualScore;
 
   }
-  else if(PickPlay == 'pedra' && BotPick[randomN] == 'paper'){
-    console.log('perdeu')
-    BotPickVisor.style.backgroundImage = 'none'
+  else if(BotPick[randomN] == 'paper'){
+    removebg
     BotPickVisor.style.backgroundImage = 'url(assets/image/papel.png)'
-    ActualScore = 0
     ActualScoreText.innerHTML = ActualScore;
+    Lose()
 
-
-  }else if(PickPlay == 'pedra' && BotPick[randomN] == 'scissors'){
-    console.log('ganhou')
-    BotPickVisor.style.backgroundImage = 'none'
+  }else if(BotPick[randomN] == 'scissors'){
+    removebg
     BotPickVisor.style.backgroundImage = 'url(assets/image/tesoura.png)'
-    ActualScore += 1
-    ActualScoreText.innerHTML = ActualScore;
+    
+    Win()
+    VerificaPlacar()
 
   }
 }
-
-
 function PaperVar(randomN){
   
   if(BotPick[randomN] == 'rock'){
-    console.log('ganhou')
-    BotPickVisor.style.backgroundImage = 'none'
+    removebg
     BotPickVisor.style.backgroundImage = 'url(assets/image/pedra.png)'
-    ActualScore += 1
-    ActualScoreText.innerHTML = ActualScore;
+    
+    Win()
+    VerificaPlacar()
 
 
   }
   else if(BotPick[randomN] == 'paper'){
-    console.log('empate')
-    BotPickVisor.style.backgroundImage = 'none'
+    removebg
     BotPickVisor.style.backgroundImage = 'url(assets/image/papel.png)'
+    ActualScore = ActualScore
+    ActualScoreText.innerHTML = ActualScore;
 
   }else if(BotPick[randomN] == 'scissors'){
-    console.log('perdeu')
-    BotPickVisor.style.backgroundImage = 'none'
+    removebg
     BotPickVisor.style.backgroundImage = 'url(assets/image/tesoura.png)'
-    ActualScore =0
+    ActualScore = 0
+    Lose()
+
+
     ActualScoreText.innerHTML = ActualScore;
 
 
   }
 }
-
-
-
 function ScissorsVar(randomN){
 
   if(BotPick[randomN] == 'rock'){
-    console.log('perdeu')
-    BotPickVisor.style.backgroundImage = 'none'
+    removebg
     BotPickVisor.style.backgroundImage = 'url(assets/image/pedra.png)'
-    ActualScore =0
     ActualScoreText.innerHTML = ActualScore;
+    Lose()
 
 
   }
   else if(BotPick[randomN] == 'paper'){
-    console.log('ganhou')
-    BotPickVisor.style.backgroundImage = 'none'
+    removebg
     BotPickVisor.style.backgroundImage = 'url(assets/image/papel.png)'
-    ActualScore += 1
-    ActualScoreText.innerHTML = ActualScore;
+    
+    VerificaPlacar()
+    Win()
 
 
   }else if(BotPick[randomN] == 'scissors'){
-    console.log('empate')
-    BotPickVisor.style.backgroundImage = 'none'
+    removebg
     BotPickVisor.style.backgroundImage = 'url(assets/image/tesoura.png)'
+    ActualScore = ActualScore
+    ActualScoreText.innerHTML = ActualScore;
   }
 }
+
+function Win(){
+  ActualScore +=1
+  ActualScoreText.innerHTML = ActualScore
+  Jogo1.style.display = 'none'
+  finalizaFunc = 'win'
+  GameStart()
+}
+function Lose(){
+  
+  ActualScore = 0
+  ActualScoreText.innerHTML = ActualScore
+  finalizaFunc = 'lose'
+  Jogo1.style.display = 'none'
+  GameStart()
+  
+
+}
+
+function VerificaPlacar(){
+  if(ActualScore > HighScore){
+    HighScore = ActualScore
+    HighScoreText.innerHTML = HighScore
+  }
+}
+
+
+

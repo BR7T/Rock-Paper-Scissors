@@ -20,25 +20,21 @@
         </div>
 
         <div id="visorArea">
-          <div class="Game">
-            <div>
-              <div id="computerArea" class="areas">
-                <!-- <img src="/assets/image/Bot.png" alt="">
-                <img src="/assets/image/pedra.png" alt="" class="PPTIcon"> -->
-              </div>
-            </div>
-            <div id="VS"> 
-              <hr>
-              VS
-              <hr>
-            </div>
-            <div id="playerArea" class="areas">
-              <div>
-                <img src="/assets/image/pedra.png" alt="">
-                <img src="/assets/image/pixil-frame-0 (1).png" id='playerIcon'alt="">
-              </div>
-              
-            </div>
+          <div id="Game">
+               <aside class="Areas">
+                <div class="Icon" name='BotI'></div>
+                <div class='pick' id="botPick">
+
+                </div>
+               </aside>
+               <div id="VS">VS</div>  
+               <aside class="Areas">
+                
+                <div class='pick' id="playerPick">
+                </div>
+                <div class="Icon" name="PlayerI"></div>
+               </aside>         
+          
           </div>
         </div>
       </div>
@@ -51,22 +47,22 @@
             <p>score</p>
               <div id="score">
 
-                  <p id="actualScore">10</p>
+                  <p id="actualScore"></p>
                   <hr>
                   <p id='highScore'></p>
                 </div>
                 <p>HighScore</p>
             </div>
             <main id="buttonsArea">
-              <div class="button">
+              <div class="button" id="rock">
                 <button></button>
                 <p>A</p>
               </div>
-              <div class="button">
+              <div class="button " id="paper">
                 <button></button>
                 <p>B</p>
               </div>
-              <div class="button">
+              <div class="button" id="scissors">
                 <button></button>
                 <p>C</p>
               </div>
@@ -85,7 +81,7 @@
               <p>Start</p>
           </div>
           <div class="buttonsSSArea">
-              <div class="detailButtonSS">
+              <div class="detailButtonSS" id="select">
               <button class="buttonsSS"></button>
   
               </div>

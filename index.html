@@ -21,60 +21,62 @@
 
         <div id="visorArea">
           <div id="Game">
-               <aside class="Areas">
-                <div class="Icon" name='BotI'></div>
-                <div class='pick' id="botPick">
+            <aside class="Areas">
+              <div class="Icon" name="BotI"></div>
+              <div class="pick" id="botPick"></div>
+            </aside>
+            <div id="VS">
+              <hr />
+              VS
+              <hr />
+            </div>
+            <aside class="Areas">
+              <div class="pick" id="playerPick">
+                <div id="QuestionPick"></div>
+                <p id="NamePick">Pedra</p>
+              </div>
+              <div class="Icon" name="PlayerI">
+                <p id="nomePlayer"></p>
+              </div>
+            </aside>
+          </div>
+          <div id="nameP">
+            <p id="textName">
+              Insira seu nome <br />
+              e pressione START
+            </p>
 
-                </div>
-               </aside>
-               <div id="VS"><hr>VS <hr></div>  
-               <aside class="Areas">
-                
-                <div class='pick' id="playerPick">
-
-                  <div id="QuestionPick"></div>
-                  <p id="NamePick">Pedra</p>
-                </div>
-                <div class="Icon" name="PlayerI"></div>
-               </aside>         
-          
+            <input type="text" id="nomePlayerInput" maxlength="3" autocomplete="off"/>
           </div>
         </div>
       </div>
 
-      
-
-
       <div id="bottom">
-          <div id="scoreArea">
-            <p>score</p>
-              <div id="score">
-                <div id="NumbScorej">
-                  <p id="actualScore"></p>
-                  <hr>
-                  <p id='highScore'></p>
-                </div>
-                  
-                </div>
-                <p>HighScore</p>
+        <div id="scoreArea">
+          <p>score</p>
+          <div id="score">
+            <div id="NumbScore">
+              <p id="actualScore"></p>
+              <hr />
+              <p id="highScore"></p>
             </div>
-            <main id="buttonsArea">
-              <div class="button" id="rock" data-Caixa="Pedra">
-                <button></button>
-                <p>A</p>
-                
-              </div>
-              <div class="button " id="paper" data-Caixa="Papel">
-                <button></button>
-                <p>B</p>
-                
-              </div>
-              <div class="button" id="scissors" data-Caixa="Tesoura">
-                <button></button>
-                <p>C</p>
-                
-              </div>
-            </main>
+          </div>
+          <p>HighScore</p>
+        </div>
+        <main id="buttonsArea">
+          <div class="button" id="rock" data-Caixa="Pedra">
+            <button></button>
+            <p>A</p>
+          </div>
+          <div class="button" id="paper" data-Caixa="Papel">
+            <button></button>
+            <p>B</p>
+          </div>
+          <div class="button" id="scissors" data-Caixa="Tesoura">
+            <button></button>
+            <p>C</p>
+          </div>
+        </main>
       </div>
 
       <!-- start, select e volume-->
@@ -82,34 +84,31 @@
       <div id="SSV">
         <div id="startselect">
           <div class="buttonsSSArea" onclick="GameStart()" id="buttonStart">
-              <div class="detailButtonSS">
-                  <button class="buttonsSS"></button>
-              </div>
-              
-              <p>Start</p>
+            <div class="detailButtonSS">
+              <button class="buttonsSS"></button>
+            </div>
+
+            <p>Start</p>
           </div>
           <div class="buttonsSSArea">
-              <div class="detailButtonSS" id="select">
+            <div class="detailButtonSS" id="select">
               <button class="buttonsSS"></button>
-  
-              </div>
-              <p>Select</p>
+            </div>
+            <p>Select</p>
           </div>
-        
         </div>
 
         <div id="AudioArea">
-          <div class="barsAudio "></div>
           <div class="barsAudio"></div>
-          <div class="barsAudio "></div>
-          <div class="barsAudio "></div>
           <div class="barsAudio"></div>
-          <div class="barsAudio "></div>
+          <div class="barsAudio"></div>
+          <div class="barsAudio"></div>
+          <div class="barsAudio"></div>
+          <div class="barsAudio"></div>
         </div>
       </div>
-      
-      <script src="script.js">
-      </script>
+
+      <script src="script.js"></script>
     </div>
   </body>
 </html>
